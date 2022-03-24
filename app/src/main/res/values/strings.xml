@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Sensors Data</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="x">X</string>
+    <string name="start">START</string>
+    <string name="stop">STOP</string>
+    <string name="accelerometer">Acc:</string>
+    <string name="gyroscope">Gyro:</string>
+    <string name="heart_rate">HR:</string>
+    <string name="y">Y</string>
+    <string name="z">Z</string>
+    <string name="bpm">bpm</string>
+    <string name="next">NEXT</string>
+    <string name="enter_activity_name">Enter Activity Name</string>
+    <string name="back">BACK</string>
+</resources>
