@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.nextBtn.setOnClickListener{
-            val i = Intent(this,SensorDataActivity::class.java)
-            i.putExtra(KEY_1,binding.etActivityName.text.toString())
-            startActivity(i)
+            startActivity(Intent(this,SensorDataActivity::class.java).apply {
+                putExtra(KEY_1,binding.etActivityName.text.toString())
+            })
         }
 
     }
