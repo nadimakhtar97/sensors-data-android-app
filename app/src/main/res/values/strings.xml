@@ -17,4 +17,5 @@
     <string name="next">NEXT</string>
     <string name="enter_activity_name">Enter Activity Name</string>
     <string name="back">BACK</string>
+    <string name="notification_message">notification message</string>
 </resources>
