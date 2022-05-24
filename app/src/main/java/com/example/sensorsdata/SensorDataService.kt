@@ -31,7 +31,7 @@ class SensorDataService : Service() {
     private val sdf = SimpleDateFormat("dd-M-yyyy hh:mm:ss")
     private lateinit var file: File
 //    private lateinit var liveData : LiveData<SensorData>
-//    private val CHANNEL_ID = "1001"
+    private val CHANNEL_ID = "1001"
 
     companion object {
         val liveData = MutableLiveData<SensorData>()
@@ -45,23 +45,23 @@ class SensorDataService : Service() {
         return null
     }
 
-//    override fun onCreate() {
-//        super.onCreate()
-////        createChannel()
-//        Log.d(TAG, "onCreate: service created")
-//        val pendingIntent: PendingIntent =
-//            Intent(this, SensorDataActivity::class.java).let { notificationIntent ->
-//                PendingIntent.getActivity(this, 0, notificationIntent, 0)
-//            }
-//        val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
-//            .setContentTitle(getText(R.string.app_name))
-//            .setContentText(getText(R.string.notification_message))
-//            .setSmallIcon(R.mipmap.ic_launcher)
-//            .setContentIntent(pendingIntent)
-//            .build()
-//
-//        startForeground(1,notification)
-//    }
+    override fun onCreate() {
+        super.onCreate()
+        createChannel()
+        Log.d(TAG, "onCreate: service created")
+        val pendingIntent: PendingIntent =
+            Intent(this, SensorDataActivity::class.java).let { notificationIntent ->
+                PendingIntent.getActivity(this, 0, notificationIntent, 0)
+            }
+        val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle(getText(R.string.app_name))
+            .setContentText(getText(R.string.notification_message))
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        startForeground(1,notification)
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
 //        Log.d(TAG, "onStartCommand: start service")
@@ -220,7 +220,11 @@ class SensorDataService : Service() {
     }
 
     override fun onDestroy() {
-//        Log.d(TAG, "onDestroy: stop service")
+        Log.d(TAG, "onDestroy: stop service")
+
+
+        stopForeground(true)
+        stopSelf()
         super.onDestroy()
         sensorData.accX = 0f
         sensorData.accY = 0f
@@ -234,17 +238,17 @@ class SensorDataService : Service() {
 
     }
 
-//    private fun createChannel(){
-//        val mNotificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//        val name : CharSequence = getString(R.string.app_name)
-//        val description = "Sensor data foreground service notification"
-//        val importance = NotificationManager.IMPORTANCE_DEFAULT
-//        val mChannel = NotificationChannel(CHANNEL_ID,name,importance)
-//        mChannel.description = description
-//        mChannel.setShowBadge(false)
-//        mChannel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-//        mNotificationManager.createNotificationChannel(mChannel)
-//
-//    }
+    private fun createChannel(){
+        val mNotificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val name : CharSequence = getString(R.string.app_name)
+        val description = "Sensor data foreground service notification"
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val mChannel = NotificationChannel(CHANNEL_ID,name,importance)
+        mChannel.description = description
+        mChannel.setShowBadge(false)
+        mChannel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+        mNotificationManager.createNotificationChannel(mChannel)
+
+    }
 
 }

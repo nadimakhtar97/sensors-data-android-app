@@ -59,7 +59,7 @@ class SensorDataActivity : AppCompatActivity() {
                 start = 0
                 binding.button.text = "STOP"
 //                Log.d(TAG, "onCreate: $fileName")
-                startService(Intent(this,SensorDataService::class.java).apply{
+                startForegroundService(Intent(this,SensorDataService::class.java).apply{
                     putExtra(FILE_NAME,fileName)
                 })
                 setObserver()

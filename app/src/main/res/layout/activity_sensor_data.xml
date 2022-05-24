@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/x"
-            app:layout_constraintEnd_toStartOf="@+id/az"
+            app:layout_constraintEnd_toStartOf="@+id/ay"
             app:layout_constraintStart_toEndOf="@+id/tvAcc"
             app:layout_constraintTop_toTopOf="@+id/tvAcc" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="@string/y"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/az"
+            app:layout_constraintStart_toEndOf="@+id/tvAcc"
             app:layout_constraintTop_toTopOf="@+id/tvAcc" />
 
         <TextView
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:text="@string/z"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvAcc"
+            app:layout_constraintStart_toEndOf="@+id/ay"
             app:layout_constraintTop_toTopOf="@+id/tvAcc" />
 
 
@@ -76,8 +76,8 @@
             android:layout_height="wrap_content"
             android:text="@string/y"
             app:layout_constraintBottom_toTopOf="@+id/hr"
-            app:layout_constraintEnd_toEndOf="@+id/az"
-            app:layout_constraintStart_toStartOf="@+id/az"
+            app:layout_constraintEnd_toEndOf="@+id/ay"
+            app:layout_constraintStart_toStartOf="@+id/ay"
             app:layout_constraintTop_toBottomOf="@+id/az" />
 
         <TextView
@@ -86,8 +86,8 @@
             android:layout_height="wrap_content"
             android:text="@string/z"
             app:layout_constraintBottom_toTopOf="@+id/hr"
-            app:layout_constraintEnd_toEndOf="@+id/ay"
-            app:layout_constraintStart_toStartOf="@+id/ay"
+            app:layout_constraintEnd_toEndOf="@+id/az"
+            app:layout_constraintStart_toStartOf="@+id/az"
             app:layout_constraintTop_toBottomOf="@+id/ay" />
 
 
